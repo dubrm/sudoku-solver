@@ -1,0 +1,40 @@
+#:kivy 1.9.1
+#: import sub re.sub
+
+<SudokuSquare>:
+    text: ''
+    input_filter:
+        lambda substring, from_undo: sub('\D', '', substring) \
+        [:1 - len(self.text)]
+    multiline: 'False'
+    font_size: 45
+    write_tab: False
+
+<SudokuWidget>:
+    grid_widget: grid_widget
+    canvas:
+        Color:
+            rgb: 0.1, 0.1, 0.2
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    BoxLayout:
+        padding: (10,10,10,10)
+        height: root.height
+        width: root.width
+        spacing: 10
+        SudokuGrid:
+            id: grid_widget
+            width: root.width * 0.7
+            size_hint_x: None
+        AnchorLayout:
+            Button:
+                background_normal: 'button.png'
+                background_down: 'button_down.png'
+                border: 30,30,30,30
+                anchor_y: 'center'
+                size_hint_y: None
+                height: 100
+                font_size: '40sp'
+                text: 'Solve it!'
+                on_press: root.solve()
