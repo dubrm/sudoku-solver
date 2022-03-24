@@ -22,7 +22,7 @@
         padding: (10,10,10,10)
         height: root.height
         width: root.width
-        spacing: 10
+        spacing: 30
         SudokuGrid:
             id: grid_widget
             width: root.width * 0.7
@@ -31,10 +31,10 @@
             Button:
                 background_normal: 'button.png'
                 background_down: 'button_down.png'
-                border: 30,30,30,30
+                border: 40,40,40,40
                 anchor_y: 'center'
                 size_hint_y: None
-                height: 100
-                font_size: '40sp'
-                text: 'Solve it!'
+                height: 50
+                font_size: '50sp'
+                text: 'SOLVE'
                 on_press: root.solve()
